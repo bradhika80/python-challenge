@@ -14,10 +14,31 @@ main.py file - Contains a Python script for analyzing the financial records of a
 
   Following statistical calculations are done
  
-  The total number of months included in the dataset
-  The net total amount of "Profit/Losses" over the entire period
-  The average of the changes in "Profit/Losses" over the entire period
-  The greatest increase in profits (date and amount) over the entire period
-  The greatest decrease in losses (date and amount) over the entire period
+    The total number of months included in the dataset
+    The net total amount of "Profit/Losses" over the entire period
+    The average of the changes in "Profit/Losses" over the entire period
+    The greatest increase in profits (date and amount) over the entire period
+    The greatest decrease in losses (date and amount) over the entire period
 
  
+ PyPoll
+ 
+ The folder contains main.py and two sub folders
+
+Resources/election_data.csv - csv file to voting statistics data.  The dataset is composed of three columns: Voter ID, County, and Candidate.
+Analysis/output.txt - output file with results
+main.py file - Contains a Python script for analyzing the  vote counting process of a rural county
+
+  Following statistical calculations are done
+  
+      The total number of votes cast
+      A complete list of candidates who received votes
+      The percentage of votes each candidate won
+      The total number of votes each candidate won
+      The winner of the election based on popular vote.
+
+
+
+
+
+
