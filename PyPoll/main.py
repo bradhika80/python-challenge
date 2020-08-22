@@ -8,7 +8,7 @@
 
 import os as os
 import csv as csv
-import math as math
+
 
 # declare input file path
 election_data = os.path.join("Resources", "election_data.csv")
