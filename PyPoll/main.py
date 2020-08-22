@@ -38,7 +38,7 @@ with open(election_data) as csvfile:
         else:
             count = candidate_count + 1
         
-        #insert/update the dictionary
+        #insert/update the dictionary with  {"candidateName" : "updatedcountvalue"}
         candidate_dictionary.update ({row[2] : count})    
         totalVoteCount = totalVoteCount + 1
     
