@@ -9,8 +9,10 @@
 import os
 import csv
 
+
 # declare input file path
 election_data = os.path.join("Resources", "election_data.csv")
+
 
 # open csv file
 with open(election_data) as csvfile:
@@ -20,27 +22,30 @@ with open(election_data) as csvfile:
     # skip the header row 
     csv_header = next(csv_reader)
 
-    #create a list of dictionary for candidates
-    candidate_list_dictionary = dict()
+    #create a dictionary for candidates
+    candidate_dictionary = dict()
 
     
     # ********* processing of the records in csv starts here *********
-    for row in csv_reader:
+    for row in csv_reader:  
         # retrieves the count value, if available, else returns 0
 
-        candidate_count = candidate_list_dictionary.get(row[2])
+        candidate_count = candidate_dictionary.get(row[2])
         if candidate_count is None :
             count = 1
         else:
             count = candidate_count + 1
-        
-        candidate_list_dictionary.update({row[2] : count})
+
+        #insert/update the dictionary
+        candidate_dictionary.update ({row[2] : count})
+    
+    
+    # ********* processing of the records in csv ends here *********
 
 
-    print (candidate_list_dictionary)
-
-
-
+    
 
 
    
+
+
