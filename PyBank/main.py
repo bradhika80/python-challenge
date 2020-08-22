@@ -1,4 +1,10 @@
 
+#*************************************************
+# Student Name : Radhika Balasubramaniam
+# Name : PyBank python challenge
+# Description : Creating a Python script for analyzing the financial records of your company
+#**************************************************
+
 #import the libraries
 
 import os
@@ -55,7 +61,7 @@ with open(budget_data) as csvfile:
     min_key = min(change_dictionary , key=change_dictionary.get)
 
    
-   #********** build the output results *********
+   #********** build the output results in a list *********
     output_list = []
     output_list.append("")
     output_list.append("Financial Analysis")
@@ -69,19 +75,26 @@ with open(budget_data) as csvfile:
 
     #********** build the output results completed *********
 
-    # printing the output to console 
+    # printing the output to console by iterating through the list 
 
     for msg in output_list :
         print (msg) 
     
     # printing to console is completed
 
-    #create outfile
+    # printing the output to file
+
+    #build outfile path
     out_path = os.path.join("Analysis", "output.txt")
 
+    #create a new output file
     with open(out_path, 'w') as outputFile:
         for msg in output_list :
             outputFile.writelines(msg + "\n")
+
+    # printing the output to file is completed
+
+
 
 
 
