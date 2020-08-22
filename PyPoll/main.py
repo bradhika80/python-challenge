@@ -59,8 +59,9 @@ with open(election_data) as csvfile:
     # iterating the candidate values in the dictionary
     for key in candidate_dictionary :
         value = candidate_dictionary[key]
-        output_list.append(f"{key} : { format(round(float(value/totalVoteCount) * 100, 2), '.3f')}% ({value})")
 
+        # format the percentage value with 3 places
+        output_list.append(f"{key} : { format(round(float(value/totalVoteCount) * 100, 2), '.3f')}% ({value})")
 
     output_list.append("----------------------------")
     output_list.append(f"Winner: {winner_key} ")
@@ -73,7 +74,7 @@ with open(election_data) as csvfile:
     for msg in output_list :
         print (msg) 
 
-         # printing to console is completed
+    # printing to console is completed
 
     # printing the output to file
 
