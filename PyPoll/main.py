@@ -28,9 +28,11 @@ with open(election_data) as csvfile:
     
     # ********* processing of the records in csv starts here *********
     for row in csv_reader:  
-        # retrieves the count value, if available, else returns 0
 
+        # retrieves the count value, if available, else returns none
         candidate_count = candidate_dictionary.get(row[2])
+        
+        # if the candidate_count is none, then its a new candidate hence count = 1, else add 1 to the existing count 
         if candidate_count is None :
             count = 1
         else:
