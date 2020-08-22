@@ -1,3 +1,6 @@
+
+#import the libraries
+
 import os
 import csv
 
@@ -23,16 +26,17 @@ with open(budget_data) as csvfile:
     # ********* processing of the records in csv starts here *********
     for row in csv_reader:
 
-        #calculate total profit values
+        #calculate total profit/loss values
         totalProfitLoses = float(row[1]) + totalProfitLoses
 
-        # assign the first row value if its the first row
+        # assign the first row value if its the first row, since the change should be set to zero
         if len(change_dictionary) < 1:
             previousProfitLoses = float(row[1])
 
         #calculate Valuechanges 
         totalValueChanges = (float(row[1]) - previousProfitLoses)  
         
+        #add the values to dictionary {"Datevalue" : "changevalue"}
         change_dictionary.update ( {row[0] : totalValueChanges} ) 
 
         #assign new profitLosesValue
@@ -42,21 +46,43 @@ with open(budget_data) as csvfile:
     # ********* processing of the records in csv ends here *********
        
     # calculation Analysis processing
-        
+    
+    #average change = sum of the change values in directory/ length of dictionary -1 (first month has to be removed since change would be zero)
     averageChange = sum(change_dictionary.values()) /(len(change_dictionary) - 1)
 
     #calculate the min and max value from the list
     max_key = max(change_dictionary, key=change_dictionary.get)
     min_key = min(change_dictionary , key=change_dictionary.get)
 
+   
+   #********** build the output results *********
+    output_list = []
+    output_list.append("")
+    output_list.append("Financial Analysis")
+    output_list.append("----------------------------")
+    output_list.append("")
+    output_list.append(f"Total Months: {len(change_dictionary)}")
+    output_list.append(f"Total: ${int(totalProfitLoses)}")
+    output_list.append(f"Average  Change: ${round(averageChange, 2)}")
+    output_list.append(f"Greatest Increase in Profits: {max_key} $({change_dictionary[max_key]})")
+    output_list.append(f"Greatest Decrease in Profits: {min_key} $({change_dictionary[min_key]})")
 
-    # print the values in the console
-    print()
-    print("Financial Analysis")
-    print("----------------------------")
-    print()
-    print(f"Total Months: {len(change_dictionary)}")
-    print(f"Total: ${int(totalProfitLoses)}")
-    print(f"Average  Change: ${round(averageChange, 2)}")
-    print(f"Greatest Increase in Profits: {max_key} $({change_dictionary[max_key]})")
-    print(f"Greatest Decrease in Profits: {min_key} $({change_dictionary[min_key]})")
+    #********** build the output results completed *********
+
+    # printing the output to console 
+
+    for msg in output_list :
+        print (msg) 
+    
+    # printing to console is completed
+
+    #create outfile
+    out_path = os.path.join("Analysis", "output.txt")
+
+    with open(out_path, 'w') as outputFile:
+        for msg in output_list :
+            outputFile.writelines(msg + "\n")
+
+
+
+   
