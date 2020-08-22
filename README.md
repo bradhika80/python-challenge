@@ -5,6 +5,9 @@ The repository contains two applications.
 
 PyBank 
 
+PyBank contains the application to analyze the financial records of a company.
+
+
 The folder contains main.py and two sub folders
 
 Resources/budget_data.csv - csv file to financial data.  The dataset is composed of two columns: Date and Profit/Losses
@@ -23,11 +26,14 @@ main.py file - Contains a Python script for analyzing the financial records of a
  
  PyPoll
  
+ PyPoll contains the application to analyze the vote counting process of a rural county
+
+ 
  The folder contains main.py and two sub folders
 
 Resources/election_data.csv - csv file to voting statistics data.  The dataset is composed of three columns: Voter ID, County, and Candidate.
 Analysis/output.txt - output file with results
-main.py file - Contains a Python script for analyzing the  vote counting process of a rural county
+main.py file - Contains a Python script for analyzing the vote counting process of a rural county
 
   Following statistical calculations are done
   
